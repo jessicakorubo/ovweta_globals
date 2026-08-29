@@ -31,7 +31,7 @@ export default function HeroSection() {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity90"
+        className="absolute inset-0 w-full h-full object-cover opacity-50"
         poster="https://images.pexels.com/photos/2101187/pexels-photo-2101187.jpeg?auto=compress&cs=tinysrgb&w=1920"
       >
         <source src="/hero.mp4" type="video/mp4" />
@@ -50,7 +50,7 @@ export default function HeroSection() {
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-steel-950 to-transparent pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full pt-32 pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full pt-44 pb-20">
         <div className="max-w-3xl">
 
           {/* Eyebrow */}

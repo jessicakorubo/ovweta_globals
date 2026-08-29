@@ -19,7 +19,7 @@ export const products: Product[] = [
     description: "Heavy-duty cargo nets manufactured to specification for safe lifting and securing of goods on marine vessels and offshore platforms.",
     specs: ["Custom sizes available", "Polypropylene or nylon construction", "Rated load capacity on request", "With or without stiffeners"],
     applications: ["Offshore platform cargo transfer", "Ship deck cargo securing", "Oil & gas logistics"],
-    image: "/cargo_net.jpeg",
+    image: "https://res.cloudinary.com/dmzhovcc/image/upload/f_auto,q_auto/cargo_net",
   },
   {
     id: "scramble-net",

@@ -39,11 +39,11 @@ export default function Footer() {
               </span>
               <span className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                +234-8063958022 · 08168246868
+                +234-8135734743 · 08168246868
               </span>
               <span className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                samsonovwetaglobal@yahoo.com
+                ovwetaglobal@gmail.com
               </span>
               <span className="flex items-center gap-2">
                 <Globe className="w-3.5 h-3.5 text-amber-500 shrink-0" />

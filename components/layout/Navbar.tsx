@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <header className={clsx(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+      "fixed top-9 left-0 right-0 z-50 transition-all duration-500",
       scrolled || pathname !== "/"
         ? "bg-steel-950/95 backdrop-blur-md border-b border-steel-800/60 shadow-xl shadow-black/40"
         : "bg-transparent"

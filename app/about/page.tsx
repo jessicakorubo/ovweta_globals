@@ -4,8 +4,20 @@ import { ShieldCheck, Zap, Users, Globe2 } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | Ovweta Global Limited",
-  description: "Learn about Ovweta Global Limited — a Port Harcourt-based marine and industrial equipment hire company serving Nigeria's oil & gas sector.",
+  title: "About Us",
+  description:
+    "Ovweta Global Limited is a 100% Nigerian-owned marine and industrial equipment company based in Port Harcourt, Rivers State. Serving the oil & gas sector with certified wire ropes, slings, nets, ladders, buoys and site services.",
+  keywords: [
+    "Ovweta Global about", "marine equipment company Nigeria",
+    "industrial equipment Port Harcourt", "oil gas equipment company Rivers State",
+    "Nigerian marine company RC 1524805",
+  ],
+  openGraph: {
+    title: "About Ovweta Global Limited",
+    description: "100% Nigerian-owned marine and industrial equipment hire company based in Port Harcourt, serving the oil & gas sector.",
+    url: "https://www.ovwetaglobal.com/about",
+  },
+  alternates: { canonical: "https://www.ovwetaglobal.com/about" },
 };
 
 const values = [
