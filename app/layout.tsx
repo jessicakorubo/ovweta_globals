@@ -97,7 +97,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               email: "ovwetaglobal@gmail.com",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "No. 17A Chikwe Street, Rumukwurusitiku",
+                streetAddress: "No. 15 Igrwuta Road, Rumukwrushi",
                 addressLocality: "Port Harcourt",
                 addressRegion: "Rivers State",
                 addressCountry: "NG",

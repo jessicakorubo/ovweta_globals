@@ -64,7 +64,7 @@ export default function ContactPage() {
                 <h2 className="font-display text-3xl text-white tracking-wider mb-8">REACH US</h2>
                 <div className="flex flex-col gap-6">
                   {[
-                    { icon: MapPin, label: "Office Address", value: "No. 17A Chikwe Street\nRumukwurusitiku\nPort Harcourt, Rivers State" },
+                    { icon: MapPin, label: "Office Address", value: "No. 15 Igwruta Road\nRumukwurushi\nPort Harcourt, Rivers State" },
                     { icon: Phone, label: "Phone", value: "+234-8063958022\n08168246868" },
                     { icon: MessageCircle, label: "WhatsApp", value: "+234-8063958022" },
                     { icon: Mail, label: "Email", value: "samsonovwetaglobal@yahoo.com" },

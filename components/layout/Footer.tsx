@@ -35,7 +35,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3 text-xs text-steel-400">
               <span className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
-                No. 17A Chikwe Street, Rumukwurusitiku, Port Harcourt
+                No. 15 Igwruta Road, Rumukwurushi, Port Harcourt
               </span>
               <span className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-amber-500 shrink-0" />
@@ -49,6 +49,15 @@ export default function Footer() {
                 <Globe className="w-3.5 h-3.5 text-amber-500 shrink-0" />
                 www.ovwetaglobal.com
               </span>
+              <a  // 
+                href="http://mail.ovwetaglobal.com/webmail"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-amber-500 hover:text-amber-400 transition-colors duration-200"
+              >
+                <Mail className="w-3.5 h-3.5 shrink-0" />
+                Access Webmail
+              </a>  
             </div>
           </div>
 
