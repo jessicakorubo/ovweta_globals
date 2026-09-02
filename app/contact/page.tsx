@@ -64,9 +64,9 @@ export default function ContactPage() {
                 <h2 className="font-display text-3xl text-white tracking-wider mb-8">REACH US</h2>
                 <div className="flex flex-col gap-6">
                   {[
-                    { icon: MapPin, label: "Office Address", value: "No. 15 Igwruta Road\nRumukwurushi\nPort Harcourt, Rivers State" },
-                    { icon: Phone, label: "Phone", value: "+234-8063958022\n08168246868" },
-                    { icon: MessageCircle, label: "WhatsApp", value: "+234-8063958022" },
+                    { icon: MapPin, label: "Office Address", value: "No. 57 Igwruta Road\nRumukwurushi\nPort Harcourt, Rivers State" },
+                    { icon: Phone, label: "Phone", value: "+234-8135734743\n08168246868" },
+                    { icon: MessageCircle, label: "WhatsApp", value: "+234-8135734743" },
                     { icon: Mail, label: "Email", value: "ovwetaglobal@gmail.com" },
                     { icon: Globe, label: "Website", value: "www.ovwetaglobal.com" },
                   ].map(contact => {
