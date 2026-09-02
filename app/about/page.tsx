@@ -61,7 +61,7 @@ export default function AboutPage() {
             <ScrollReveal>
               <SectionHeader label="Our Story" title="OVWETA GLOBAL" subtitle="A Nigerian company built around the needs of the oil & gas industry." />
               <p className="text-steel-400 leading-relaxed mb-4">
-                Ovweta Global Limited is a 100% Nigerian-owned company incorporated and registered with the Corporate Affairs Commission (RC: 1524805), headquartered at No. 15 Igwruta Road, Rumukwurushi, Port Harcourt, Rivers State.
+                Ovweta Global Limited is a 100% Nigerian-owned company incorporated and registered with the Corporate Affairs Commission (RC: 1524805), headquartered at No. 56 Igwruta Road, Rumukwurushi, Port Harcourt, Rivers State.
               </p>
               <p className="text-steel-400 leading-relaxed mb-4">
                 We specialise in the supply and hire of certified marine and industrial safety equipment — including cargo nets, scramble nets, gangway nets, steel wire rope nets, pilot ladders, embarkation ladders, stretchers, and a full range of buoys and flotation equipment.
