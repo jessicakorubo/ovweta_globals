@@ -39,7 +39,7 @@ export const products: Product[] = [
     description: "Gangway safety nets installed beneath walkways to protect personnel from falls during boarding and disembarkation.",
     specs: ["Custom length and width", "High-tensile polyester", "Safety net standard compliant", "Quick-deploy rigging"],
     applications: ["Vessel gangway safety", "Offshore platform access", "Port operations"],
-    image: "/gangway_net.jpg",
+    image: "https://res.cloudinary.com/dmzhovcc/image/upload/v1788362042/gangway_net.jpg",
   },
   {
     id: "steel-wire-rope-net",
@@ -70,7 +70,7 @@ export const products: Product[] = [
     description: "Custom sling fabrication, testing, certification, and ongoing management for offshore and onshore lifting operations.",
     specs: ["Wire rope and synthetic slings", "Load tested and certified", "Colour-coded to industry standard", "Full traceability documentation"],
     applications: ["Offshore crane operations", "Heavy lift rigging", "Load securing"],
-    image: "/webbing_sling.jpg",
+    image: "https://res.cloudinary.com/dmzhovcc/image/upload/v1788361297/webbing_sling.jpg",
   },
   {
     id: "rope-dressing",
@@ -82,6 +82,17 @@ export const products: Product[] = [
     applications: ["Wire rope maintenance", "Offshore rigging preservation", "Mooring line upkeep"],
     image: "/wire_hooks.jpg",
   },
+
+    {
+    id: "lifting-gear-supply",
+    name: "Lifting Gear Supply",
+    category: "Ropes & Slings",
+    categorySlug: "ropes",
+    description: "Supply of certified lifting gear and rigging hardware — shackles, hooks, chains, and fittings — for offshore and onshore lifting operations.",
+    specs: ["Certified to industry standard", "Full range of load capacities", "Available for hire or purchase", "Full documentation supplied"],
+    applications: ["Offshore lifting operations", "Rigging and load handling", "Crane and hoist support"],
+    image: "/lifting_gear.jpg",
+  },
   // ── LADDERS & ACCESS ────────────────────────────────────────────────────
   {
     id: "pilot-ladder",
@@ -91,7 +102,7 @@ export const products: Product[] = [
     description: "SOLAS-compliant pilot ladders for safe pilot boarding and disembarkation from vessels.",
     specs: ["SOLAS Chapter V / LSA Code compliant", "Hardwood treads", "Manila or synthetic side ropes", "Tested to 750kg minimum"],
     applications: ["Pilot boarding", "Vessel inspections", "Port authority access"],
-    image: "/pilot_ladder.jpeg",
+    image: "https://res.cloudinary.com/dmzhovcc/image/upload/v1788361274/pilot_ladder.jpg",
   },
   {
     id: "jacobs-ladder",
@@ -101,7 +112,7 @@ export const products: Product[] = [
     description: "Traditional Jacob's ladders for vessel boarding and personnel access in marine and offshore operations.",
     specs: ["Hardwood or aluminium rungs", "Natural or synthetic rope sides", "Custom lengths", "Lightweight and compact"],
     applications: ["Personnel boarding", "Offshore access", "Ship-to-ship transfer"],
-    image: "/jacobs_ladder.jpg",
+    image: "https://res.cloudinary.com/dmzhovcc/image/upload/v1788361277/jacobs_ladder.jpg",
   },
   {
     id: "lifeboat-boarding-ladder",
@@ -132,7 +143,7 @@ export const products: Product[] = [
     description: "Lightweight single-person stretcher for casualty evacuation in marine and offshore environments.",
     specs: ["Aluminium alloy frame", "Load rated to 150kg", "Foldable for compact storage", "Carry handles both sides"],
     applications: ["Offshore medical evacuation", "Vessel first response", "Emergency rescue"],
-    image: "/single_stretcher.jpeg",
+    image: "https://res.cloudinary.com/dmzhovcc/image/upload/v1788361274/single_stretcher.jpg",
   },
   {
     id: "double-stretcher",
@@ -184,7 +195,7 @@ export const products: Product[] = [
     description: "Specialist chain-through mooring buoys designed for high-load mooring systems in offshore oil fields.",
     specs: ["Central chain passage tube", "High-strength HDPE", "Corrosion-resistant fittings", "Load rated to specification"],
     applications: ["Offshore mooring", "Single point mooring (SPM)", "Tanker berthing"],
-    image: "https://images.pexels.com/photos/3886285/pexels-photo-3886285.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/chain_through_buoy.jpeg",
   },
   {
     id: "pickup-buoy",
@@ -194,7 +205,7 @@ export const products: Product[] = [
     description: "Bright-coloured pick-up buoys for marking mooring lines, anchor positions, and recovery lines.",
     specs: ["High-visibility colour", "Foam-filled unsinkable", "Rope attachment eye", "Lightweight"],
     applications: ["Mooring line marking", "Anchor marking", "Diver surface marking"],
-    image: "https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "pickup-buoy",
   },
   // ── SITE SERVICES ───────────────────────────────────────────────────────
   {
@@ -207,14 +218,74 @@ export const products: Product[] = [
     applications: ["Offshore platform support", "Shutdown and turnaround", "Onshore industrial facilities"],
     image: "https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
+    {
+    id: "crane-wire-installation",
+    name: "Crane Wire Installation",
+    category: "Site Services",
+    categorySlug: "site",
+    description: "Professional installation and replacement of crane wire rope, carried out by experienced riggers to manufacturer and safety specifications.",
+    specs: ["Experienced rigging crew", "All crane types catered for", "Safety compliance checks included", "Short-notice mobilisation"],
+    applications: ["Crane wire replacement", "Offshore platform cranes", "Onshore lifting equipment"],
+    image: "https://res.cloudinary.com/dmzhovcc/image/upload/v1788362027/crane-wire.jpg",
+  },
+  {
+    id: "instrumentation",
+    name: "Instrumentation",
+    category: "Site Services",
+    categorySlug: "site",
+    description: "Instrumentation services covering installation, calibration, and support for industrial monitoring and control equipment on site.",
+    specs: ["Qualified technicians", "On-site and workshop service", "Calibration support", "Documented reporting"],
+    applications: ["Offshore platform instrumentation", "Onshore facility support", "Industrial monitoring systems"],
+    image: "https://res.cloudinary.com/dmzhovcc/image/upload/v1788362027/instrumentation.jpg",
+  },
+  {
+    id: "rig-light-hire",
+    name: "Rig Light Hire",
+    category: "Site Services",
+    categorySlug: "site",
+    description: "Hire of rig lights and site lighting equipment for round-the-clock visibility on offshore platforms and onshore work sites.",
+    specs: ["Weatherproof and rugged", "Various wattage options", "Mobile and fixed setups", "Delivery and setup available"],
+    applications: ["Night operations lighting", "Platform and rig sites", "Onshore worksite lighting"],
+    image: "https://res.cloudinary.com/dmzhovcc/image/upload/v1788362029/rig-light.jpg",
+  },
+  {
+    id: "welding-machine-supply",
+    name: "Welding Machine Supply",
+    category: "Site Services",
+    categorySlug: "site",
+    description: "Supply and hire of welding machines and accessories for on-site fabrication, repair, and maintenance work.",
+    specs: ["Diesel and electric options", "Regularly serviced equipment", "Delivery available", "Operator hire on request"],
+    applications: ["On-site fabrication", "Structural repairs", "Maintenance and turnaround work"],
+    image: "https://res.cloudinary.com/dmzhovcc/image/upload/v1788362028/welding-machine.jpg",
+  },
+  {
+    id: "mobile-toilet-hire",
+    name: "Mobile Toilet Hire",
+    category: "Site Services",
+    categorySlug: "site",
+    description: "Hire of mobile toilet units for offshore and onshore sites, supporting welfare and hygiene requirements during operations.",
+    specs: ["Self-contained units", "Regular servicing available", "Delivery and setup included", "Various unit sizes"],
+    applications: ["Offshore platform welfare", "Onshore site facilities", "Shutdown and turnaround support"],
+    image: "https://res.cloudinary.com/dmzhovcc/image/upload/v1788362027/mobile-toilet.jpg",
+  },
+  {
+    id: "compressor-hire",
+    name: "Compressor Hire",
+    category: "Site Services",
+    categorySlug: "site",
+    description: "Hire of industrial air compressors for on-site pneumatic tools, cleaning, and general site operations.",
+    specs: ["Diesel and electric units", "Various capacities available", "Delivery and collection", "Well-maintained fleet"],
+    applications: ["Pneumatic tool operation", "Site cleaning and blow-down", "General industrial support"],
+    image: "/compressor.jpeg",
+  },
 ];
 
 export const categories = [
   { slug: "nets",    label: "Nets",                  description: "Cargo, scramble, gangway, and steel wire rope nets to specification." },
-  { slug: "ropes",   label: "Ropes & Slings",         description: "Wire ropes, sling fabrication, fittings, and rope dressing services." },
+  { slug: "ropes",   label: "Ropes & Slings",         description: "Wire ropes, sling fabrication, fittings, rope dressing, and lifting gear supply." },
   { slug: "ladders", label: "Ladders & Access",       description: "Pilot, Jacob's, and lifeboat boarding ladders for marine operations." },
   { slug: "safety",  label: "Safety & Rescue",        description: "Rescue lines, single and double stretchers for offshore emergency response." },
   { slug: "testing", label: "Testing & Certification",description: "Lifting gear examination, load testing, and certification services." },
   { slug: "buoys",   label: "Buoys & Flotation",      description: "Cylindrical, chain-through, and pick-up buoys for mooring and navigation." },
-  { slug: "site",    label: "Site Services",          description: "On-site rigging, inspection, and support for offshore and onshore facilities." },
+  { slug: "site",    label: "Site Services",          description: "On-site rigging, installation, and equipment hire — crane wire, instrumentation, welding machines, and site amenities." },
 ];

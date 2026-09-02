@@ -67,7 +67,7 @@ export default function ContactPage() {
                     { icon: MapPin, label: "Office Address", value: "No. 15 Igwruta Road\nRumukwurushi\nPort Harcourt, Rivers State" },
                     { icon: Phone, label: "Phone", value: "+234-8063958022\n08168246868" },
                     { icon: MessageCircle, label: "WhatsApp", value: "+234-8063958022" },
-                    { icon: Mail, label: "Email", value: "samsonovwetaglobal@yahoo.com" },
+                    { icon: Mail, label: "Email", value: "ovwetaglobal@gmail.com" },
                     { icon: Globe, label: "Website", value: "www.ovwetaglobal.com" },
                   ].map(contact => {
                     const Icon = contact.icon;
