@@ -91,7 +91,7 @@ export const products: Product[] = [
     description: "Supply of certified lifting gear and rigging hardware — shackles, hooks, chains, and fittings — for offshore and onshore lifting operations.",
     specs: ["Certified to industry standard", "Full range of load capacities", "Available for hire or purchase", "Full documentation supplied"],
     applications: ["Offshore lifting operations", "Rigging and load handling", "Crane and hoist support"],
-    image: "/lifting_gear.jpg",
+    image: "/lifting-gear.jpeg",
   },
   // ── LADDERS & ACCESS ────────────────────────────────────────────────────
   {
