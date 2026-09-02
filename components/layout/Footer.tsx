@@ -92,7 +92,7 @@ export default function Footer() {
 
         <div className="mt-14 pt-6 border-t border-steel-800/50 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-steel-600">
           <span>© {new Date().getFullYear()} Ovweta Global Limited. RC: 1524805. All rights reserved.</span>
-          <span className="text-steel-700">Built by <span className="text-amber-600/70"> <a href="jasit.com.ng"> Jasit Technologies</a></span></span>
+          <span className="text-steel-700">Built by <span className="text-amber-600/70"> <a href="https://jasit.com.ng"> Jasit Technologies</a></span></span>
         </div>
       </div>
     </footer>
