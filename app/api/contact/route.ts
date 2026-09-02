@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
           </div>
 
           <p style="color: #545462; font-size: 11px; margin-top: 24px; text-align: center;">
-            Sent from ovwetaglobal.com · Built by Jasit Technologies
+            Sent from ovwetaglobal.com · Built by <a href="/htttps://jasit.com.ng"> Jasit Technologies </a>
           </p>
         </div>
       `,
