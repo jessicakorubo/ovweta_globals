@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
 
     const { error } = await resend.emails.send({
       from: "Ovweta Global Website <noreply@ovwetaglobal.com>", // change to your verified domain later
-      to: ["info@ovwetaglobal.com", "ovwetaglobal@gmail.com", "successovwoka@gmail.com", "jessicakorubo@gmail.com"],
+      to: ["ovwetaglobal@gmail.com" ],
       reply_to: email,
       subject: `New Hire Request — ${product}`,
       html: `
