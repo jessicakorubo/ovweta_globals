@@ -13,8 +13,8 @@ export async function POST(req: NextRequest) {
     }
 
     const { error } = await resend.emails.send({
-      from: "Ovweta Global Website <onboarding@resend.dev>",
-      to: ["ovwetaglobal@gmail.com", "info@ovwetaglobal.com", "successowhoka@gmail.com"],
+      from: "Ovweta Global Website <noreply@ovwetaglobal.com>",
+      to: ["info@ovwetaglobal.com"],
       reply_to: email,
       subject: `Website Enquiry — ${subject}`,
       html: `
