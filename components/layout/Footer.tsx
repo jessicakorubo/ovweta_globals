@@ -4,7 +4,7 @@ import { Anchor, MapPin, Phone, Mail, Globe } from "lucide-react";
 const footerLinks = {
   Company: [
     { label: "About Us", href: "/about" },
-    { label: "Products & Hire", href: "/products" },
+    { label: "Products, Sale & Hire", href: "/products" },
     { label: "Contact", href: "/contact" },
   ],
   "Equipment Categories": [
@@ -31,7 +31,7 @@ export default function Footer() {
               <span className="font-display text-xl text-white tracking-widest">OVWETA</span>
             </Link>
             <p className="text-sm text-steel-400 leading-relaxed mb-6">
-              Certified marine and industrial equipment hire. Serving the oil & gas sector across Nigeria with reliable, inspected gear.
+              Certified marine and industrial equipment sale and hire. Serving the oil & gas sector across Nigeria with reliable, inspected gear.
             </p>
             <div className="flex flex-col gap-3 text-xs text-steel-400">
               <span className="flex items-start gap-2">
@@ -80,9 +80,9 @@ export default function Footer() {
 
           {/* Hire CTA */}
           <div>
-            <h4 className="text-amber-500 text-[10px] font-mono tracking-[0.2em] uppercase mb-5">Hire Equipment</h4>
+            <h4 className="text-amber-500 text-[10px] font-mono tracking-[0.2em] uppercase mb-5">Sale &amp; Hire</h4>
             <p className="text-sm text-steel-400 mb-5 leading-relaxed">
-              Need certified marine or industrial equipment? Submit a hire request and we'll respond within 24 hours.
+              Need certified marine or industrial equipment? Request a price or submit a hire request and we'll respond within 24 hours.
             </p>
             <Link href="/products" className="inline-block px-5 py-2.5 bg-amber-500 text-steel-950 text-sm font-bold hover:bg-amber-400 transition-colors duration-200">
               Browse Equipment

@@ -4,7 +4,7 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 
 const pillars = [
   "100% Nigerian registered company (RC: 1524805)",
-  "All equipment inspected before every hire",
+  "All equipment inspected before every sale and hire",
   "Serving oil & gas operators since incorporation",
   "Fast 24-hour quote turnaround",
   "Port Harcourt based — Rivers State & beyond",
@@ -28,10 +28,10 @@ export default function AboutSnippet() {
                 BUILT FOR<br />THE FIELD
               </h2>
               <p className="text-steel-400 leading-relaxed mb-4">
-                Ovweta Global Limited is a Port Harcourt-based marine and industrial equipment company serving Nigeria's oil & gas sector. We supply and hire certified safety and lifting gear to offshore and onshore operators who need reliable, inspected equipment — fast.
+                Ovweta Global Limited is a Port Harcourt-based marine and industrial equipment company serving Nigeria's oil & gas sector. We sell and hire certified safety and lifting gear to offshore and onshore operators who need reliable, inspected equipment — fast.
               </p>
               <p className="text-steel-400 leading-relaxed mb-8">
-                Every item in our inventory is maintained to specification and available for hire with clear terms. Submit a hire request online and our team will respond within 24 hours.
+                Every item in our inventory is maintained to specification and available for sale or hire with clear terms. Request a price or submit a hire request online and our team will respond within 24 hours.
               </p>
               <Button href="/about" variant="outline">
                 Our Story <ArrowRight className="w-4 h-4 ml-2" />
@@ -52,7 +52,7 @@ export default function AboutSnippet() {
         </Container>
       </section>
 
-      {/* Hire CTA banner */}
+      {/* Sale & Hire CTA banner */}
       <section className="py-20 bg-amber-500 relative overflow-hidden">
         <div className="absolute inset-0 stripe-accent opacity-30 pointer-events-none" />
         <Container>
@@ -62,7 +62,7 @@ export default function AboutSnippet() {
                 <h2 className="font-display text-5xl text-steel-950 tracking-wider leading-none mb-2">
                   NEED EQUIPMENT?
                 </h2>
-                <p className="text-steel-800 text-sm">Browse our inventory and submit a hire request. We respond within 24 hours.</p>
+                <p className="text-steel-800 text-sm">Browse our inventory and request a price or submit a hire request. We respond within 24 hours.</p>
               </div>
               <div className="flex flex-wrap gap-4 shrink-0">
                 <Button href="/products" variant="ghost" size="lg" className="bg-steel-950 text-white hover:bg-steel-900 border-0">

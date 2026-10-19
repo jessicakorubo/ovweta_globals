@@ -5,17 +5,54 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { products, categories, type Product } from "@/lib/products";
 import { X, Send, Loader2, CheckCircle2, ChevronDown } from "lucide-react";
 import clsx from "clsx";
+import Link from "next/link";
 
 type HireForm = {
   name: string; company: string; email: string; phone: string;
   duration: string; purpose: string; quantity: string; notes: string;
 };
 
+type Mode = "buy" | "hire" | "quote";
+
+const modeText: Record<Mode, { label: string; button: string; sent: string; word: string; note: string }> = {
+  buy:   { label: "Purchase Request", button: "Submit Purchase Request", sent: "purchase request", word: "Request Price", note: "Submitting this form does not confirm an order." },
+  hire:  { label: "Hire Request",     button: "Submit Hire Request",     sent: "hire request",     word: "Request Hire",  note: "Submitting this form does not confirm a booking." },
+  quote: { label: "Quote Request",    button: "Submit Quote Request",    sent: "quote request",    word: "Request a Quote", note: "Submitting this form does not confirm an order." },
+};
+
+// Which buttons each item shows. Anything not listed shows Buy + Hire (sale first).
+// Items with availability: "sale" in lib/products.ts show a Quote button only.
+const actionOverrides: Record<string, Mode[]> = {
+  "rig-light-hire": ["hire"],
+  "mobile-toilet-hire": ["hire"],
+  "compressor-hire": ["hire"],
+  "testing-certification": ["quote"],
+  "lifting-gear-examination": ["quote"],
+  "site-services": ["quote"],
+  "crane-wire-installation": ["quote"],
+  "instrumentation": ["quote"],
+  "slings": ["quote"],
+};
+
+function getActions(p: Product): Mode[] {
+  if (actionOverrides[p.id]) return actionOverrides[p.id];
+  if (p.availability === "sale") return ["quote"];
+  if (p.availability === "hire") return ["hire"];
+  return ["buy", "hire"];
+}
+
 const emptyForm: HireForm = { name: "", company: "", email: "", phone: "", duration: "", purpose: "", quantity: "1", notes: "" };
+
+const detailPages: Record<string, string> = {
+  "cargo-net": "/products/cargo-net",
+  "rescue-line": "/products/rescue-line",
+  "slings": "/products/webbing-sling",
+};
 
 export default function ProductsPage() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [mode, setMode] = useState<Mode>("hire");
   const [form, setForm] = useState<HireForm>(emptyForm);
   const [formState, setFormState] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -32,7 +69,11 @@ export default function ProductsPage() {
       const res = await fetch("/api/hire", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ product: selectedProduct?.name, ...form }),
+        body: JSON.stringify({
+          product: mode === "hire" ? selectedProduct?.name : `${selectedProduct?.name} (${modeText[mode].label})`,
+          ...form,
+          duration: mode === "hire" ? form.duration : "N/A (not a hire request)",
+        }),
       });
       if (res.ok) {
         setFormState("success");
@@ -44,8 +85,9 @@ export default function ProductsPage() {
     }
   };
 
-  const openHire = (product: Product) => {
+  const openHire = (product: Product, m: Mode) => {
     setSelectedProduct(product);
+    setMode(m);
     setForm(emptyForm);
     setFormState("idle");
     document.body.style.overflow = "hidden";
@@ -67,13 +109,13 @@ export default function ProductsPage() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
         <Container>
           <ScrollReveal>
-            <span className="text-amber-500 text-[10px] font-mono tracking-[0.25em] uppercase block mb-3">Hire Inventory</span>
+            <span className="text-amber-500 text-[10px] font-mono tracking-[0.25em] uppercase block mb-3">Sale &amp; Hire Inventory</span>
             <span className="amber-rule" />
             <h1 className="font-display text-6xl md:text-8xl text-white tracking-wider leading-none mb-4">
-              PRODUCTS<br /><span className="text-amber-500">&amp; HIRE</span>
+              PRODUCTS<br /><span className="text-amber-500">SALE &amp; HIRE</span>
             </h1>
             <p className="text-steel-400 max-w-xl text-base leading-relaxed">
-              Browse our full inventory of certified marine and industrial equipment. Click any item to submit a hire request.
+              Browse our full inventory of certified marine and industrial equipment. Click any item to request a price, submit a hire request or ask for a quote.
             </p>
           </ScrollReveal>
         </Container>
@@ -130,7 +172,7 @@ export default function ProductsPage() {
                   </ScrollReveal>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {products.filter(p => p.categorySlug === cat.slug).map((product, i) => (
-                      <ProductCard key={product.id} product={product} onHire={openHire} delay={i * 60} />
+                      <ProductCard key={product.id} product={product} onAction={openHire} delay={i * 60} />
                     ))}
                   </div>
                 </div>
@@ -141,14 +183,14 @@ export default function ProductsPage() {
           {activeCategory !== "all" && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {filtered.map((product, i) => (
-                <ProductCard key={product.id} product={product} onHire={openHire} delay={i * 60} />
+                <ProductCard key={product.id} product={product} onAction={openHire} delay={i * 60} />
               ))}
             </div>
           )}
         </Container>
       </section>
 
-      {/* Hire Request Modal */}
+      {/* Request Modal (purchase / hire / quote) */}
       {selectedProduct && (
         <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-0 md:p-6">
           {/* Backdrop */}
@@ -158,7 +200,7 @@ export default function ProductsPage() {
             {/* Modal header */}
             <div className="sticky top-0 bg-steel-950 border-b border-steel-800 px-6 py-4 flex items-start justify-between gap-4 z-10">
               <div>
-                <div className="text-[10px] font-mono tracking-widest uppercase text-amber-500 mb-1">Hire Request</div>
+                <div className="text-[10px] font-mono tracking-widest uppercase text-amber-500 mb-1">{modeText[mode].label}</div>
                 <h3 className="font-display text-2xl text-white tracking-wider">{selectedProduct.name.toUpperCase()}</h3>
               </div>
               <button onClick={closeHire} className="text-steel-400 hover:text-white transition-colors mt-1 shrink-0">
@@ -172,7 +214,7 @@ export default function ProductsPage() {
                   <CheckCircle2 className="w-12 h-12 text-amber-500 mx-auto mb-4" />
                   <h4 className="font-display text-3xl text-white tracking-wider mb-2">REQUEST SENT</h4>
                   <p className="text-steel-400 text-sm mb-6">
-                    We've received your hire request for <strong className="text-white">{selectedProduct.name}</strong>. Our team will respond within 24 hours.
+                    We've received your {modeText[mode].sent} for <strong className="text-white">{selectedProduct.name}</strong>. Our team will respond within 24 hours.
                   </p>
                   <button onClick={closeHire} className="text-sm text-amber-500 underline underline-offset-2 hover:text-amber-400 transition-colors">
                     Close
@@ -190,12 +232,12 @@ export default function ProductsPage() {
                       />
                     </div>
                     <div className="p-4">
-                    <p className="text-xs text-steel-400 leading-relaxed">{selectedProduct.description}</p>
-                    <div className="flex flex-wrap gap-2 mt-3">
-                      {selectedProduct.specs.slice(0, 2).map(s => (
-                        <span key={s} className="text-[10px] font-mono px-2 py-0.5 bg-steel-700/50 text-steel-400 tracking-wide">{s}</span>
-                      ))}
-                    </div>
+                      <p className="text-xs text-steel-400 leading-relaxed">{selectedProduct.description}</p>
+                      <div className="flex flex-wrap gap-2 mt-3">
+                        {selectedProduct.specs.slice(0, 2).map(s => (
+                          <span key={s} className="text-[10px] font-mono px-2 py-0.5 bg-steel-700/50 text-steel-400 tracking-wide">{s}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
@@ -216,10 +258,12 @@ export default function ProductsPage() {
                       <label className="text-[10px] font-mono tracking-widest uppercase text-steel-500 block mb-1.5">Phone / WhatsApp *</label>
                       <input name="phone" required placeholder="+234 ..." value={form.phone} onChange={handleChange} className={inputCls} />
                     </div>
-                    <div>
-                      <label className="text-[10px] font-mono tracking-widest uppercase text-steel-500 block mb-1.5">Hire Duration *</label>
-                      <input name="duration" required placeholder="e.g. 2 weeks, 1 month" value={form.duration} onChange={handleChange} className={inputCls} />
-                    </div>
+                    {mode === "hire" && (
+                      <div>
+                        <label className="text-[10px] font-mono tracking-widest uppercase text-steel-500 block mb-1.5">Hire Duration *</label>
+                        <input name="duration" required placeholder="e.g. 2 weeks, 1 month" value={form.duration} onChange={handleChange} className={inputCls} />
+                      </div>
+                    )}
                     <div>
                       <label className="text-[10px] font-mono tracking-widest uppercase text-steel-500 block mb-1.5">Quantity Needed</label>
                       <input name="quantity" type="number" min="1" value={form.quantity} onChange={handleChange} className={inputCls} />
@@ -242,10 +286,10 @@ export default function ProductsPage() {
                     className="flex items-center justify-center gap-2 w-full py-4 bg-amber-500 text-steel-950 font-bold text-sm tracking-widest uppercase hover:bg-amber-400 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     {formState === "loading" ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
-                    Submit Hire Request
+                    {modeText[mode].button}
                   </button>
 
-                  <p className="text-[10px] text-steel-500 text-center">We respond within 24 hours. Submitting this form does not confirm a booking.</p>
+                  <p className="text-[10px] text-steel-500 text-center">We respond within 24 hours. {modeText[mode].note}</p>
                 </form>
               )}
             </div>
@@ -256,7 +300,7 @@ export default function ProductsPage() {
   );
 }
 
-function ProductCard({ product, onHire, delay }: { product: Product; onHire: (p: Product) => void; delay: number }) {
+function ProductCard({ product, onAction, delay }: { product: Product; onAction: (p: Product, m: Mode) => void; delay: number }) {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -320,14 +364,31 @@ function ProductCard({ product, onHire, delay }: { product: Product; onHire: (p:
           )}
         </div>
 
-        <div className="px-6 pb-6">
-          <button
-            onClick={() => onHire(product)}
-            className="w-full py-3 bg-transparent border border-amber-500/50 text-amber-400 text-xs font-bold tracking-widest uppercase hover:bg-amber-500 hover:text-steel-950 transition-all duration-200"
-          >
-            Request Hire
-          </button>
+        <div className="px-6 pb-6 flex flex-col gap-2">
+          {detailPages[product.id] && (
+            <Link
+              href={detailPages[product.id]}
+              className="w-full py-3 text-center text-amber-400 text-xs font-bold tracking-widest uppercase hover:text-white transition-colors"
+            >
+              View details →
+            </Link>
+          )}
+          {getActions(product).map((m, idx) => (
+            <button
+              key={m}
+              onClick={() => onAction(product, m)}
+              className={clsx(
+                "w-full py-3 text-xs font-bold tracking-widest uppercase transition-all duration-200",
+                idx === 0
+                  ? "bg-amber-500 text-steel-950 hover:bg-amber-400"
+                  : "bg-transparent border border-amber-500/50 text-amber-400 hover:bg-amber-500 hover:text-steel-950"
+              )}
+            >
+              {modeText[m].word}
+            </button>
+          ))}
         </div>
+
       </div>
     </ScrollReveal>
   );

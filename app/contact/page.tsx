@@ -48,7 +48,7 @@ export default function ContactPage() {
               CONTACT US
             </h1>
             <p className="text-steel-400 mt-4 max-w-lg text-base leading-relaxed">
-              For hire enquiries, pricing, or general information — reach out and we'll respond within 24 hours.
+              For sales and hire enquiries, pricing, or general information — reach out and we'll respond within 24 hours.
             </p>
           </ScrollReveal>
         </Container>
@@ -128,6 +128,7 @@ export default function ContactPage() {
                           <label className="text-[10px] font-mono tracking-widest uppercase text-steel-500 block mb-1.5">Subject *</label>
                           <select name="subject" required value={form.subject} onChange={handleChange} className={inputCls + " bg-steel-800"}>
                             <option value="">Select a subject</option>
+                            <option>Equipment Purchase Enquiry</option>
                             <option>Equipment Hire Enquiry</option>
                             <option>Pricing Information</option>
                             <option>Custom Specification</option>

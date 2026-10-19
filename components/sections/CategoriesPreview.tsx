@@ -18,8 +18,8 @@ export default function CategoriesPreview() {
         <ScrollReveal>
           <SectionHeader
             label="Equipment Categories"
-            title="WHAT WE HIRE"
-            subtitle="All equipment is inspected and certified before every hire. We serve oil & gas operators across Rivers State and beyond."
+            title="WHAT WE SELL & HIRE"
+            subtitle="All equipment is inspected and certified before every sale and hire. We serve oil & gas operators across Rivers State and beyond."
           />
         </ScrollReveal>
 

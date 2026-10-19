@@ -8,7 +8,7 @@ import clsx from "clsx";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/products", label: "Products & Hire" },
+  { href: "/products", label: "Products, Sale & Hire" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -56,7 +56,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={clsx(
-                "relative px-4 py-2 text-sm font-medium tracking-wide transition-colors duration-200",
+                "relative px-4 py-2 text-sm font-medium tracking-wide whitespace-nowrap transition-colors duration-200",
                 pathname === link.href
                   ? "text-amber-400"
                   : "text-steel-300 hover:text-white",

@@ -1,12 +1,12 @@
 import { Container, SectionHeader } from "@/components/ui";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { ShieldCheck, Zap, Users, Globe2 } from "lucide-react";
+import { ShieldCheck, Zap, Users, Globe2, Eye, Target, Gem } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Ovweta Global Limited is a 100% Nigerian-owned marine and industrial equipment company based in Port Harcourt, Rivers State. Serving the oil & gas sector with certified wire ropes, slings, nets, ladders, buoys and site services.",
+    "Ovweta Global Limited is a 100% Nigerian-owned marine and industrial equipment company based in Port Harcourt, Rivers State. Supplying and hiring certified wire ropes, slings, spreader bars, nets, ladders, buoys, diesel power generators and site services to the oil & gas sector.",
   keywords: [
     "Ovweta Global about", "marine equipment company Nigeria",
     "industrial equipment Port Harcourt", "oil gas equipment company Rivers State",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "About Ovweta Global Limited",
-    description: "100% Nigerian-owned marine and industrial equipment hire company based in Port Harcourt, serving the oil & gas sector.",
+    description: "100% Nigerian-owned marine and industrial equipment sales and hire company based in Port Harcourt, serving the oil & gas sector.",
     url: "https://www.ovwetaglobal.com/about",
   },
   alternates: { canonical: "https://www.ovwetaglobal.com/about" },
@@ -26,6 +26,8 @@ const values = [
   { icon: Users, title: "Client Focus", desc: "We work with your specs and timeline, not the other way around." },
   { icon: Globe2, title: "Local Expertise", desc: "Deep knowledge of Nigeria's oil & gas operating environment." },
 ];
+
+const coreValues = ["Safety First", "Integrity", "Quality", "Customer Satisfaction", "Professionalism"];
 
 export default function AboutPage() {
   return (
@@ -64,7 +66,7 @@ export default function AboutPage() {
                 Ovweta Global Limited is a 100% Nigerian-owned company incorporated and registered with the Corporate Affairs Commission (RC: 1524805), headquartered at No. 56 Igwruta Road, Rumukwurushi, Port Harcourt, Rivers State.
               </p>
               <p className="text-steel-400 leading-relaxed mb-4">
-                We specialise in the supply and hire of certified marine and industrial safety equipment — including cargo nets, scramble nets, gangway nets, steel wire rope nets, pilot ladders, embarkation ladders, stretchers, and a full range of buoys and flotation equipment.
+                We specialise in the sale and hire of certified marine and industrial safety equipment — including cargo nets, scramble nets, gangway nets, steel wire rope nets, pilot ladders, embarkation ladders, stretchers, spreader bars, diesel power generators, and a full range of buoys and flotation equipment.
               </p>
               <p className="text-steel-400 leading-relaxed">
                 Our clients include operators across the upstream and downstream oil & gas sector who need reliable, inspected equipment delivered on time and to specification.
@@ -97,16 +99,68 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      {/* Vision, Mission & Values */}
+      <section className="py-24 bg-steel-950 relative">
+        <div className="absolute inset-0 grid-texture opacity-40 pointer-events-none" />
+        <Container>
+          <ScrollReveal>
+            <SectionHeader label="What Drives Us" title="VISION, MISSION & VALUES" />
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <ScrollReveal>
+              <div className="p-6 bg-steel-800/30 border border-steel-700/40 h-full">
+                <div className="w-9 h-9 border border-steel-600 flex items-center justify-center mb-4">
+                  <Eye className="w-4 h-4 text-amber-500" />
+                </div>
+                <h3 className="font-display text-xl text-amber-400 tracking-wider mb-3">OUR VISION</h3>
+                <p className="text-sm text-steel-300 leading-relaxed">
+                  To be the leading supplier of marine and industrial equipment in Nigeria and beyond, recognized for quality, safety and customer service.
+                </p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={80}>
+              <div className="p-6 bg-steel-800/30 border border-steel-700/40 h-full">
+                <div className="w-9 h-9 border border-steel-600 flex items-center justify-center mb-4">
+                  <Target className="w-4 h-4 text-amber-500" />
+                </div>
+                <h3 className="font-display text-xl text-amber-400 tracking-wider mb-3">OUR MISSION</h3>
+                <p className="text-sm text-steel-300 leading-relaxed">
+                  To provide world-class marine and industrial solutions that ensure safety, efficiency and value for our clients.
+                </p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={160}>
+              <div className="p-6 bg-steel-800/30 border border-steel-700/40 h-full">
+                <div className="w-9 h-9 border border-steel-600 flex items-center justify-center mb-4">
+                  <Gem className="w-4 h-4 text-amber-500" />
+                </div>
+                <h3 className="font-display text-xl text-amber-400 tracking-wider mb-3">OUR VALUES</h3>
+                <ul className="flex flex-col gap-2">
+                  {coreValues.map((v) => (
+                    <li key={v} className="flex items-center gap-2 text-sm text-steel-300">
+                      <span className="w-1.5 h-1.5 bg-amber-500 shrink-0" />
+                      {v}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </ScrollReveal>
+          </div>
+        </Container>
+      </section>
+
       {/* What we supply */}
       <section className="py-24 bg-steel-950 relative">
         <div className="absolute inset-0 grid-texture opacity-40 pointer-events-none" />
         <Container>
           <ScrollReveal>
-            <SectionHeader label="Our Inventory" title="WHAT WE SUPPLY" />
+            <SectionHeader label="Our Inventory" title="WHAT WE SELL & HIRE" />
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               { cat: "Nets & Rope", items: ["Cargo Nets", "Scramble Nets", "Gangway Nets", "Steel Wire Rope Nets"] },
+              { cat: "Slings & Lifting", items: ["Slings Fabrication & Management", "Wire Ropes & Fittings", "Spreader Bars", "Lifting Gear Supply"] },
+              { cat: "Power & Site Equipment", items: ["Diesel Power Generators", "Welding Machines", "Compressors"] },
               { cat: "Ladders & Access", items: ["Pilot Ladders", "Embarkation Ladders"] },
               { cat: "Safety & Rescue", items: ["Single Stretchers", "Double Stretchers"] },
               { cat: "Buoys & Flotation", items: ["Cylindrical Buoys", "Chain Through Buoys", "Pick-Up Buoys"] },

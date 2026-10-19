@@ -7,7 +7,13 @@ export type Product = {
   specs: string[];
   applications: string[];
   image: string; // Replace with your own photo when available
+  availability?: "sale" | "hire" | "sale-hire"; // optional: shown as sale-first
 };
+
+// Grey placeholder until real photos are added. Replace the image line of the product with e.g. "/spreader-bar.jpg"
+const placeholder =
+  "data:image/svg+xml;utf8," +
+  encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><rect width="100%" height="100%" fill="#2a2d36"/><text x="50%" y="50%" fill="#8b8f9a" font-family="sans-serif" font-size="32" text-anchor="middle">Photo coming soon</text></svg>');
 
 export const products: Product[] = [
   // ── NETS ────────────────────────────────────────────────────────────────
@@ -92,6 +98,17 @@ export const products: Product[] = [
     specs: ["Certified to industry standard", "Full range of load capacities", "Available for hire or purchase", "Full documentation supplied"],
     applications: ["Offshore lifting operations", "Rigging and load handling", "Crane and hoist support"],
     image: "/lifting-gear.jpeg",
+  },
+  {
+    id: "spreader-bar",
+    name: "Spreader Bar",
+    category: "Ropes & Slings",
+    categorySlug: "ropes",
+    description: "Spreader bars for safe, balanced lifting of long or wide loads, made to specification and supplied with certification.",
+    specs: ["Made to specification", "Load tested and certified", "Rated capacity on request", "Full documentation supplied"],
+    applications: ["Offshore crane operations", "Heavy lift rigging", "Long and wide load handling"],
+    image:  "/spreader-bar.jpeg",
+    availability: "sale",
   },
   // ── LADDERS & ACCESS ────────────────────────────────────────────────────
   {
@@ -205,7 +222,7 @@ export const products: Product[] = [
     description: "Bright-coloured pick-up buoys for marking mooring lines, anchor positions, and recovery lines.",
     specs: ["High-visibility colour", "Foam-filled unsinkable", "Rope attachment eye", "Lightweight"],
     applications: ["Mooring line marking", "Anchor marking", "Diver surface marking"],
-    image: "pickup-buoy",
+    image: "pickup-buoy.jpeg",
   },
   // ── SITE SERVICES ───────────────────────────────────────────────────────
   {
@@ -278,14 +295,25 @@ export const products: Product[] = [
     applications: ["Pneumatic tool operation", "Site cleaning and blow-down", "General industrial support"],
     image: "/compressor.jpeg",
   },
+  {
+    id: "diesel-power-generator",
+    name: "Diesel Power Generator",
+    category: "Site Services",
+    categorySlug: "site",
+    description: "Diesel power generators for offshore and onshore sites. Contact us for a quote.",
+    specs: ["Diesel powered", "Various capacities available", "Delivery available", "Request a quote for sizes and pricing"],
+    applications: ["Site and workshop power", "Offshore and onshore operations", "Standby power"],
+    image: "/diesel-power-generator.jpeg",
+    availability: "sale",
+  },
 ];
 
 export const categories = [
   { slug: "nets",    label: "Nets",                  description: "Cargo, scramble, gangway, and steel wire rope nets to specification." },
-  { slug: "ropes",   label: "Ropes & Slings",         description: "Wire ropes, sling fabrication, fittings, rope dressing, and lifting gear supply." },
+  { slug: "ropes",   label: "Ropes & Slings",         description: "Wire ropes, sling fabrication, fittings, rope dressing, and lifting gear supply, and spreader bars." },
   { slug: "ladders", label: "Ladders & Access",       description: "Pilot, Jacob's, and lifeboat boarding ladders for marine operations." },
   { slug: "safety",  label: "Safety & Rescue",        description: "Rescue lines, single and double stretchers for offshore emergency response." },
   { slug: "testing", label: "Testing & Certification",description: "Lifting gear examination, load testing, and certification services." },
   { slug: "buoys",   label: "Buoys & Flotation",      description: "Cylindrical, chain-through, and pick-up buoys for mooring and navigation." },
-  { slug: "site",    label: "Site Services",          description: "On-site rigging, installation, and equipment hire — crane wire, instrumentation, welding machines, and site amenities." },
+  { slug: "site",    label: "Site Services",          description: "On-site rigging, installation, and equipment sale and hire — crane wire, instrumentation, welding machines, diesel power generators, and site amenities." },
 ];

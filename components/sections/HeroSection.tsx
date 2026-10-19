@@ -75,7 +75,7 @@ export default function HeroSection() {
             className="text-steel-200 text-lg leading-relaxed mb-4 max-w-xl"
             style={{ animation: "fadeUp 0.7s ease 0.25s both" }}
           >
-            Certified marine and industrial equipment for hire — cargo nets, slings, buoys, rescue gear, and more. Built for the oil & gas sector.
+           Marine equipment supplier in Port Harcourt — webbing slings, wire ropes, cargo nets, ladders, buoys and lifting gear for sale and hire to the oil & gas sector.
           </p>
 
           {/* Trust badges */}
@@ -97,7 +97,7 @@ export default function HeroSection() {
             style={{ animation: "fadeUp 0.7s ease 0.45s both" }}
           >
             <Button href="/products" size="lg">
-              Browse Equipment
+              Browse Sale & Hire
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
             <Button href="/contact" variant="outline" size="lg">
